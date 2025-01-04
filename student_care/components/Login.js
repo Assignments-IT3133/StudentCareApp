@@ -98,9 +98,9 @@ const styles = StyleSheet.create({
   },
   error: {
     padding: 3,
-    color: 'blue',
+    color: 'black',
     marginTop: 10,
-    backgroundColor: 'gray',
+    backgroundColor: '#f08080',
     borderRadius: 4,
     fontWeight: 'bold',
   },
