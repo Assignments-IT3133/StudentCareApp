@@ -1,34 +1,24 @@
 import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-import students from '../assets/StudentsDb.js';
+import {students} from '../assets/StudentsDb.js';
 
 export default function Login() {
   const [showPw, setShowPw] = useState(false);
   const [userName, setUsername] = useState('');
   const [pw, setPw] = useState('');
-  const [users, setUsers] = useState(students);
 
   const handleLogin = () => {
-    // Ensure 'users' is defined and is an array
-    if (!users || !Array.isArray(users)) {
-        console.error("Users data is undefined or not an array");
-        return;
-    }
- 
-    const user = users.find((u) => u.username === enteredUsername);
-    if (!user) {
-        console.error("User not found");
-        return;
-    }
- 
-    if (user.password === enteredPassword) {
-        console.log("Login successful!");
-    } else {
-        console.error("Invalid password");
-    }
- };
- 
 
+    const student = students.find(s => s.username === userName);
+
+    if(student && student.password === pw){
+      alert('Login successful');
+    }
+    else{
+        alert('Invalid credentials');
+    }
+ 
+}
   return (
     <View style={styles.container}>
       <Text style={styles.title}>STUDENT LOGIN</Text>
@@ -49,7 +39,7 @@ export default function Login() {
           secureTextEntry={!showPw}
         />
         <TouchableOpacity onPress={() => setShowPw(!showPw)}>
-          <Text>{showPw ? '🙈' : '🙉'}</Text>
+          <Text>{showPw ? '🙉' : '🙈'}</Text>
         </TouchableOpacity>
       </View>
 
