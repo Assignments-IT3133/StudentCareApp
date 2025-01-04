@@ -4,7 +4,7 @@ import {students} from '../assets/StudentsDb.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
 
-export default function Login() {
+export default function Login({navigation}) {
   const [showPw, setShowPw] = useState(false);
   const [userName, setUsername] = useState('');
   const [pw, setPw] = useState('');
@@ -15,7 +15,7 @@ export default function Login() {
     const student = students.find(s => s.username === userName);
 
     if(student && student.password === pw){
-      alert('Login successful');
+      navigation.navigate('Dashboard',{student});
     }
     else{
       setErrorMessage('❌ Invalid username or password');
