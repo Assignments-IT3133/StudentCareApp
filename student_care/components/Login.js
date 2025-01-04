@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import {students} from '../assets/StudentsDb.js';
+import Header from './Header.js';
+import Footer from './Footer.js';
 
 export default function Login() {
   const [showPw, setShowPw] = useState(false);
@@ -21,6 +23,7 @@ export default function Login() {
 }
   return (
     <View style={styles.container}>
+        <Header/>
       <Text style={styles.title}>STUDENT LOGIN</Text>
 
       <TextInput
@@ -39,13 +42,14 @@ export default function Login() {
           secureTextEntry={!showPw}
         />
         <TouchableOpacity onPress={() => setShowPw(!showPw)}>
-          <Text>{showPw ? '🙉' : '🙈'}</Text>
+          <Text>{showPw ? '👁️‍🗨️' : '👁️'}</Text>
         </TouchableOpacity>
       </View>
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
+      <Footer/>
 
     </View>
   );
@@ -57,6 +61,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
+    width: '100%',
   },
   title: {
     fontSize: 24,
@@ -73,12 +78,16 @@ const styles = StyleSheet.create({
   password: {
     flexDirection: 'row',
     alignItems: 'center',
+    width: '100%',
   },
   button: {
     marginTop: 16,
     padding: 12,
-    backgroundColor: '#007BFF',
+    backgroundColor: 'purple',
     borderRadius: 4,
+    width: '100%',
+    alignItems: 'center',
+    borderRadius: 25,
   },
   buttonText: {
     color: '#fff',
