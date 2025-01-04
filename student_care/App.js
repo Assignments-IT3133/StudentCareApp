@@ -1,11 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Login from './components/Login';
-import { SafeAreaView } from 'react-native-web';
+import StudentDashboard from './components/StudentDashboard';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Login/>
+      <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name='Dash' component={StudentDashboard}/>
+      </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 }
