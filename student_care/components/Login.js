@@ -8,6 +8,7 @@ export default function Login() {
   const [showPw, setShowPw] = useState(false);
   const [userName, setUsername] = useState('');
   const [pw, setPw] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLogin = () => {
 
@@ -17,7 +18,7 @@ export default function Login() {
       alert('Login successful');
     }
     else{
-        alert('Invalid credentials');
+      setErrorMessage('❌ Invalid username or password');
     }
  
 }
@@ -45,6 +46,8 @@ export default function Login() {
           <Text>{showPw ? '👁️‍🗨️' : '👁️'}</Text>
         </TouchableOpacity>
       </View>
+
+      {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
 
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Login</Text>
@@ -92,5 +95,13 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize: 16,
+  },
+  error: {
+    padding: 3,
+    color: 'blue',
+    marginTop: 10,
+    backgroundColor: 'gray',
+    borderRadius: 4,
+    fontWeight: 'bold',
   },
 });
