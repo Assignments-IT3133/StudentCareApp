@@ -6,7 +6,22 @@ import { Divider } from 'react-native-paper';
 import Tabs from './Tabs.js';
 
 export default function StudentDashboard({ route }) {
-  const { student } = route.params;
+const { student } = route.params;
+
+// const student ={
+//     "id": 1,
+//     "name": "Alice Johnson",
+//     "age": 21,
+//     "course_id": 1,
+//     "username": "Alice.j",
+//     "password": "s123",
+//     "profile_pic": require('../assets/profilepic/1.jpg'),
+//     "address": "123 Maple Street, Springfield",
+//     "email": "alice.johnson@example.com",
+//     "phone": "555-123-4567",
+//     "gender": "Female",
+//     "blood_group": "O+"
+//   }
 
   return (
     <View style={styles.container}>
@@ -28,11 +43,13 @@ export default function StudentDashboard({ route }) {
             <Text style={styles.studata}>Address: {student.address}</Text>
             <Divider style={styles.divider} />
             <Text style={styles.subtopic}>Biological Information</Text>
+            <Text style={styles.studata}>Gender: {student.gender}</Text>
+            <Text style={styles.studata}>Age: {student.age}</Text>
             <Text style={styles.studata}>Blood Group: {student.blood_group}</Text>
           </View>
         </View>
       </ScrollView>
-      <Footer/>
+     {/* <Footer/>  */}
     </View>
   );
 }
