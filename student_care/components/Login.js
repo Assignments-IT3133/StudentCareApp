@@ -15,7 +15,7 @@ export default function Login({navigation}) {
     const student = students.find(s => s.username === userName);
 
     if(student && student.password === pw){
-      navigation.navigate('Dashboard',{student});
+      navigation.navigate('Tabs',{student});
     }
     else{
       setErrorMessage('❌ Invalid username or password');
